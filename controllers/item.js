@@ -5,7 +5,7 @@ exports.addItem = async (req, res) => {
     try {
         const { name, price, stock } = req.body;
 
-        // Validasi field wajib — termasuk stock agar income controller bisa kurangi stok
+        // Validasi wajib - stock agar income controller bisa kurangi stok
         if (!name || price === undefined || stock === undefined) {
             return res.status(400).json({ message: "Nama, harga, dan stok wajib diisi" });
         }
@@ -41,7 +41,7 @@ exports.updateItem = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // Whitelist field yang boleh diupdate — jangan pakai req.body langsung
+        // Whitelist field yang boleh diupdate 
         const { name, price, stock } = req.body;
 
         const updateData = {};

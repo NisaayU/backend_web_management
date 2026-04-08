@@ -117,7 +117,7 @@ exports.updateIncome = async (req, res) => {
         return res.status(400).json({ message: 'Date and items are required!' });
     }
 
-    // Resolve nama → ObjectId jika frontend tidak kirim ObjectId
+    // Resolve nama 
     for (let i of items) {
         const isValidObjectId = i.item && /^[a-f\d]{24}$/i.test(String(i.item));
         if (!isValidObjectId) {

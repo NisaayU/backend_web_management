@@ -28,8 +28,8 @@ readdirSync('./routes').map((route) =>
     app.use('/api/v1', require('./routes/' + route)))
 
 const server = async () => {
-    await db(); // tunggu DB konek dulu
-    await seedDefaultUsers(); // baru seed user
+    await db(); 
+    await seedDefaultUsers(); 
     app.listen(PORT, () => {
         console.log('Now you in PORT:', PORT)
     })

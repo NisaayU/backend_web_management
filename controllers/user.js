@@ -49,12 +49,6 @@ const getProfile = async (req, res) => {
 };
 
 /* ================= UPDATE PASSWORD (owner only) ================= */
-/**
- * Hanya owner yang bisa update password user lain.
- * Staff tidak bisa ubah password sendiri — hubungi owner.
- * Route: PUT /api/v1/users/:id/password
- * Middleware: protect, authorizeOwner
- */
 const updatePassword = async (req, res) => {
     try {
         const { id } = req.params;
@@ -151,14 +145,9 @@ const deleteUser = async (req, res) => {
 
 /* ================= SEED DEFAULT USERS ================= */
 /**
- * Dipanggil sekali saat server start.
- * Membuat akun owner dan staff default jika belum ada.
- *
  * Default credentials:
  *   owner  → username: "owner"  | password: "owner123"
  *   staff  → username: "staff"  | password: "staff123"
- *
- * Ganti password setelah pertama login via updatePassword endpoint.
  */
 const seedDefaultUsers = async () => {
     try {

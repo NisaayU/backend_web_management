@@ -5,7 +5,6 @@ const ItemSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Items",
     },
-    // FIX: tambahkan field name agar bisa ditampilkan tanpa populate
     name: {
         type: String,
         trim: true,
