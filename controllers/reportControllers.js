@@ -65,6 +65,8 @@ exports.exportIncomeToExcel = async (req, res) => {
             ? new Date(date).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
             : 'Semua';
 
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Expose-Headers', 'Content-Disposition');
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         res.setHeader('Content-Disposition', `attachment; filename="Laporan Keuangan ${label}.xlsx"`);
         res.send(buffer);
